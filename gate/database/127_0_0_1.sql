@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2022 at 07:24 PM
+-- Generation Time: Mar 04, 2023 at 12:48 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `polybond123`
 --
+CREATE DATABASE IF NOT EXISTS `polybond123` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `polybond123`;
 
 -- --------------------------------------------------------
 
@@ -274,15 +276,6 @@ CREATE TABLE `g_createvisiter` (
   `GETMANNAME` varchar(50) DEFAULT NULL,
   `LOCATION` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `g_createvisiter`
---
-
-INSERT INTO `g_createvisiter` (`ID`, `EMPNAME`, `VISITER_NAME`, `INTIME`, `PURPOSE`, `STATUS`, `OUTIME`, `GETIN`, `GETMANNAME`, `LOCATION`) VALUES
-(1, 'VIKRAM DEWANGAN', 'Rohan Tiwari', '23:29:50', 'for salary issue', '1', '00:00:00', '2022-04-27', 'Ayush', 'bhilai'),
-(2, 'VIKRAM DEWANGAN', 'Chintu yadav', '23:31:01', 'for salary issue', '1', '11:11:11', '2022-04-27', 'Ayush', 'bhilai'),
-(3, 'Mukesh', 'Nitin', '17:54:31', 'for salary', '1', '00:00:00', '2022-05-25', 'Ayush', 'bhilai');
 
 -- --------------------------------------------------------
 
@@ -632,6 +625,51 @@ CREATE TABLE `g_visiter_details` (
   `DATE` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `master_purchase_ledger`
+--
+
+CREATE TABLE `master_purchase_ledger` (
+  `m_purchase_ledger_id` int(11) NOT NULL,
+  `m_purchase_ledger_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `master_purchase_ledger`
+--
+
+INSERT INTO `master_purchase_ledger` (`m_purchase_ledger_id`, `m_purchase_ledger_name`) VALUES
+(1, 'Chemical Purchase (Phenol, Formalin, Cutting Oil)'),
+(2, 'Coke Purchase (Out of State)'),
+(3, 'Coke Purchase State'),
+(4, 'Coke Transporation A/c'),
+(5, 'Consumable Goods'),
+(6, 'Consumable Goods @ 12%'),
+(7, 'Consumable Goods @ 18%'),
+(8, 'Consumable Goods @ 28%'),
+(9, 'Consumable Goods @ 5%'),
+(10, 'GST - Consumable Goods'),
+(11, 'Raw Mateial BF Slag Purchase @ 18%'),
+(12, 'Raw Material @ (Dolomite,Greenslag, Other)'),
+(13, 'Raw Material Lime Stone Purchase @ 5%'),
+(14, 'Slag Transporation Inward'),
+(15, 'Terminal Tax'),
+(16, 'Import Duty'),
+(17, 'Import Purchase'),
+(18, 'Jali for Mattress Purchase (Out of State) @ 18%'),
+(19, 'PURCHASE BAKAL (TRD)'),
+(20, 'PURCHASE RASMADA (TRD)'),
+(21, 'Trading Purchase (TRD)'),
+(22, 'Export Freight Outward'),
+(23, 'Freight FOR (Insulation)'),
+(24, 'Freight FOR (Projects)'),
+(25, 'Freight FOR (Rock)'),
+(26, 'FREIGHT OUTWARD (F)'),
+(27, 'LABOUR CHARGES - EXP'),
+(28, 'Jali for Mattress Purchase (State) @ 18%');
+
 --
 -- Indexes for dumped tables
 --
@@ -685,6 +723,12 @@ ALTER TABLE `g_visiter_details`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indexes for table `master_purchase_ledger`
+--
+ALTER TABLE `master_purchase_ledger`
+  ADD PRIMARY KEY (`m_purchase_ledger_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -710,13 +754,13 @@ ALTER TABLE `g_emp_detail`
 -- AUTO_INCREMENT for table `g_gateentryemp`
 --
 ALTER TABLE `g_gateentryemp`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `g_gateentrytime`
 --
 ALTER TABLE `g_gateentrytime`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `g_grn`
@@ -734,7 +778,13 @@ ALTER TABLE `g_guard_details`
 -- AUTO_INCREMENT for table `g_visiter_details`
 --
 ALTER TABLE `g_visiter_details`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
+--
+-- AUTO_INCREMENT for table `master_purchase_ledger`
+--
+ALTER TABLE `master_purchase_ledger`
+  MODIFY `m_purchase_ledger_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
